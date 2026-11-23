@@ -32,5 +32,10 @@ systemctl start mongod
 VALIDATE $? "started mongod"
 systemctl enable mongod 
 VALIDATE $? "mongod enabling"
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+VALIDATE $? "replacing from 127.0.0.1/0.0.0.0"
+systemctl restart mongod
+VALIDATE $? "restarting the mongod"
+
 
  
