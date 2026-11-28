@@ -43,11 +43,11 @@ VALIDATE $? "Downloaded and extracted catalogue code"
 npm install 
 VALIDATE $? "Installing dependencies"
 
-cp catalogue.service /etc/systemd/system/catalogue.service
+cp /root/shell/catalogue.service /etc/systemd/system/catalogue.service
 # cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service
  VALIDATE $? "Created systemctl service"
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp /root/shell/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "Added Mongo repo" 
 
 dnf install mongodb-mongosh -y
