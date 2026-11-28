@@ -43,7 +43,7 @@ VALIDATE $? "Downloaded and extracted catalogue code"
 npm install 
 VALIDATE $? "Installing dependencies"
 
-cp catalogue.sh /etc/systemd/system/catalogue.service
+cp catalogue.service /etc/systemd/system/catalogue.service
 # cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service
  VALIDATE $? "Created systemctl service"
 
