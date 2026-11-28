@@ -56,12 +56,12 @@ VALIDATE $? "Installed MongoDB client"
 INDEX=$(mongosh --host mongodb.daws90s.shop --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
 
 if [ $INDEX -lt 0 ]; then
-    mongosh --host mongodb.daws90s.shop </app/db/master-data.js &>>$LOGS_FILE  # we need to check connection manually wheather connection is happend or not
+    mongosh --host mongodb.daws90s.shop </app/db/master-data.js   # we need to check connection manually wheather connection is happend or not
     VALIDATE $? "Load Products"
 else
-    echo -e "Products already loaded ... $Y SKIPPING $N"
+    echo  "Products already loaded ...  SKIPPING"
 fi
 
-systemctl enable catalogue &>>$LOGS_FILE
-systemctl restart catalogue &>>$LOGS_FILE
+systemctl enable catalogue 
+systemctl restart catalogue 
 VALIDATE $? "Restarting catalogue"
